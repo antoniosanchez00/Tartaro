@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO: llamar otro Activity
 
-                Intent VistaCategoria = new Intent(MainActivity.this, VistaCategoria.class); //Llama la vista creada de categoria
+                Intent VistaCategoria = new Intent(MainActivity.this, CategoriaActivity.class); //Llama la vista creada de categoria
 
                 VistaCategoria.putExtra("nombre", "Juan de lo palote");
                 startActivity(VistaCategoria); //inicializa el activity
