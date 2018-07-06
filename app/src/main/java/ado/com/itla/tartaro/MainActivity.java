@@ -18,8 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i(LOG_TAG, "Estoy Aqui");
 
-
-        Button btnCategoria = (Button) findViewById(R.id.btnCategoria); //busca todos los botones que no esten en el MainActivity
+        Button btnCategoria = findViewById(R.id.btnCategoria); //busca todos los botones que no esten en el MainActivity
 
         btnCategoria.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,9 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
                 VistaCategoria.putExtra("nombre", "Juan de lo palote");
                 startActivity(VistaCategoria); //inicializa el activity
-
-
-
             }
         });
     }
