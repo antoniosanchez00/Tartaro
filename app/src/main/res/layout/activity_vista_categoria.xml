@@ -8,7 +8,6 @@
     tools:context=".CategoriaActivity">
 
 
-
     <EditText
         android:id="@+id/txtNombreCategoria"
         android:layout_width="match_parent"
@@ -21,7 +20,14 @@
         android:id="@+id/btnGuardarCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Categoria"
+        android:text="Guardar"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnListarCategoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lista"
         android:textSize="18sp" />
 
 

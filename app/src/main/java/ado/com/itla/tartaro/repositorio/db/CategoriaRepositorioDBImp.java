@@ -2,8 +2,10 @@ package ado.com.itla.tartaro.repositorio.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ado.com.itla.tartaro.entidad.Categoria;
@@ -31,13 +33,10 @@ public class CategoriaRepositorioDBImp implements CategoriaRepositorio {
         Long id = db.insert(TABLA_NOMBRE, null, cv);
         db.close();
 
-        if(id.intValue() > 0){
-
+        if (id.intValue() > 0) {
             categoria.setId(id.intValue());
-
             return true;
         }
-
 
         return false;
     }
@@ -49,6 +48,30 @@ public class CategoriaRepositorioDBImp implements CategoriaRepositorio {
 
     @Override
     public List<Categoria> buscar(String buscar) {
-        return null;
+
+        List<Categoria> categorias = new ArrayList<>();
+
+        SQLiteDatabase db = conexionDb.getReadableDatabase();
+
+        String columnas[] = {"id", CAMPO_NOMBRE};
+
+        Cursor cr = db.query(TABLA_NOMBRE, columnas, null, null, null, null, null, null);
+
+        cr.moveToFirst();
+
+        while (!cr.isAfterLast()) {
+            int id = cr.getInt(cr.getColumnIndex("id"));
+            String nombre = cr.getString(cr.getColumnIndex(CAMPO_NOMBRE));
+
+            Categoria cat = new Categoria(id, nombre);
+            categorias.add(cat);
+
+            cr.moveToNext();//agregar siempre move to next
+        }
+
+        cr.close();
+        db.close();
+
+        return categorias;
     }
 }
