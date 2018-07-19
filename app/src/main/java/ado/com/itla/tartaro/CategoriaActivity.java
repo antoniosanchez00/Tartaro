@@ -1,5 +1,6 @@
 package ado.com.itla.tartaro;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,15 +49,21 @@ public class CategoriaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //TODO: guardar la categoria
 
-                List<Categoria> categorias = catRep.buscar(null);
-                Log.i("LISTAR", "Categoria.size = " + categorias.size());
+             //   List<Categoria> categorias = catRep.buscar(null);
+             //  Log.i("LISTAR", "Categoria.size = " + categorias.size());
 
-                for (Categoria c: categorias) {
-                    Log.i("LISTAR", c.toString());
-                }
+             //   for (Categoria c: categorias) {
+             //       Log.i("LISTAR", c.toString());
+             //   }
+                Intent CategoriaLista = new Intent(CategoriaActivity.this, CategoriaListaActivity.class);
+                startActivity(CategoriaLista);
 
             }
         });
+
+
+
+
 
         //Bundle data = this.getIntent().getExtras();
         // String nombre = (String) data.getString("nombre");
